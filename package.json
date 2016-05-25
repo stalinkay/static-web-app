@@ -24,6 +24,10 @@
   },
   "homepage": "https://github.com/stalinkay/static-web-app#readme",
   "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-polyfill": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
     "gulp": "^3.9.1",
     "gulp-bump": "^2.1.0"
   }
