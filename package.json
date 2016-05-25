@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/stalinkay/static-web-app#readme",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-bump": "^2.1.0"
   }
 }
