@@ -1,0 +1,26 @@
+{
+  "name": "static-web-app",
+  "version": "1.0.0",
+  "description": "a Starter static app project with a gulp build workflow",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stalinkay/static-web-app.git"
+  },
+  "keywords": [
+    "starter",
+    "web-app",
+    "gulp",
+    "workflow",
+    "stalinkay"
+  ],
+  "author": "Stalin Kay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stalinkay/static-web-app/issues"
+  },
+  "homepage": "https://github.com/stalinkay/static-web-app#readme"
+}
