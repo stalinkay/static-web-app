@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/stalinkay/static-web-app/issues"
   },
-  "homepage": "https://github.com/stalinkay/static-web-app#readme"
+  "homepage": "https://github.com/stalinkay/static-web-app#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }
