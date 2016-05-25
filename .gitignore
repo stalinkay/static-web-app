@@ -1,0 +1,8 @@
+src/components/
+dist/components/
+node_modules/
+.tmp
+npm-debug.log
+.DS_Store
+dist
+.idea
