@@ -1,0 +1,24 @@
+{
+  "name": "static-web-app",
+  "description": "a Starter static app project with a gulp build workflow",
+  "main": "index.js",
+  "authors": [
+    "Stalin Kay"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "starter",
+    "web-app",
+    "gulp",
+    "workflow",
+    "stalinkay"
+  ],
+  "homepage": "https://github.com/stalinkay/static-web-app",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
