@@ -29,6 +29,7 @@
     "babel-polyfill": "^6.9.0",
     "babel-preset-es2015": "^6.9.0",
     "browser-sync": "^2.12.8",
+    "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-bump": "^2.1.0",
     "gulp-conventional-changelog": "^1.1.0",
