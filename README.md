@@ -4,7 +4,7 @@ A starter for web apps with gulp build workflow
 ## Features
 
 - ES6+ support using [BabelJS](https://babeljs.io)
-- (BrowserSync)[https://browsesync.io]
+- Browser Sync with (BrowserSync)[https://browsesync.io]
 - Auto-generated changelog using [gulp-conventional-changelog](https://github.com/conventional-changelog/gulp-conventional-changelog)
 
 
