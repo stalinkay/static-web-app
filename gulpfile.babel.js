@@ -164,6 +164,36 @@ gulp.task('serve:test', ['scripts'], () => {
 });
 
 
+// Will patch the version
+gulp.task('bump-prerelease', function(){
+  gulp.src('./*.json')
+  .pipe(bump())
+  .pipe(gulp.dest('./'));
+});
+
+// Will patch the version
+gulp.task('bump-patch', function(){
+  gulp.src('./*.json')
+  .pipe(bump())
+  .pipe(gulp.dest('./'));
+});
+
+// Defined method of updating:
+// Semantic
+gulp.task('bump-minor', function(){
+  gulp.src('./*.json')
+  .pipe(bump({type:'minor'}))
+  .pipe(gulp.dest('./'));
+});
+
+// Defined method of updating:
+// Semantic major
+gulp.task('bump-major', function(){
+  gulp.src('./*.json')
+  .pipe(bump({type:'major'}))
+  .pipe(gulp.dest('./'));
+});
+
 /*
  *  Generate a Changelog
  */
