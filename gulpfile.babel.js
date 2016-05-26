@@ -52,13 +52,12 @@ const imagePaths = {
 /*
  *  create required directories
  */
-gulp.task('clean', () => {
+gulp.task('clean', (cb) => {
   var directories = [];
-  directories.push(dirs.temp, dirs.dest);
+  directories.push(dirs.temp, dirs.dest, 'CHANGELOG.md'); // directories to delete
   delDryRun(directories);
   del.sync(directories);
-  return gulp.src(dirs.src)
-  .pipe($.util.noop());
+  cb();
 });
 
 function delDryRun(directories) {
@@ -75,7 +74,7 @@ function delDryRun(directories) {
 /*
  *  create required directories
  */
-gulp.task('mkdir', () => {
+gulp.task('mkdir', (cb) => {
 
   let paths = {
     sass: sassPaths,
@@ -85,7 +84,7 @@ gulp.task('mkdir', () => {
   };
 
   // create destination folder
-  mkdirp(dirs.dest, (err) => {
+  mkdirp.sync(dirs.dest, (err) => {
       if (err) {
         console.error(err);
       } else {
@@ -93,7 +92,7 @@ gulp.task('mkdir', () => {
       }
   });
 
-  mkdirp(sassPaths.src, (err) => {
+  mkdirp.sync(sassPaths.src, (err) => {
       if (err) {
         console.error(err);
       } else {
@@ -101,7 +100,7 @@ gulp.task('mkdir', () => {
       }
   });
 
-  mkdirp(lessPaths.src, (err) => {
+  mkdirp.sync(lessPaths.src, (err) => {
       if (err) {
         console.error(err);
       } else {
@@ -109,7 +108,7 @@ gulp.task('mkdir', () => {
       }
   });
 
-  mkdirp(jsPaths.src, (err) => {
+  mkdirp.sync(jsPaths.src, (err) => {
       if (err) {
         console.error(err);
       } else {
@@ -117,7 +116,7 @@ gulp.task('mkdir', () => {
       }
   });
 
-  mkdirp(imagePaths.src, (err) => {
+  mkdirp.sync(imagePaths.src, (err) => {
       if (err) {
         console.error(err);
       } else {
@@ -129,9 +128,7 @@ gulp.task('mkdir', () => {
   // return gulp.src(dirs.src)
   // .pipe($.util.noop())
   // .pipe(gulp.dest(dirs.dest));
-
-  return gulp.src(dirs.src).pipe($.util.noop());
-
+  cb();
 });
 
 /*
