@@ -9,6 +9,36 @@ import browserSync from 'browser-sync';
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
+// base dirs
+const dirs = {
+  src: 'src',
+  dest: 'dist'
+};
+
+// sass paths
+const sassPaths = {
+  src: `${dirs.src}/sass/`,
+  dest: `${dirs.dest}/css/`
+};
+
+// less paths
+const lessPaths = {
+  src: `${dirs.src}/less/`,
+  dest: `${dirs.dest}/less/`
+};
+
+// js paths
+const jsPaths = {
+  src: `${dirs.src}/js/`,
+  dest: `${dirs.dest}/js/`
+};
+
+// images paths
+const imagePaths = {
+  src: `${dirs.src}/images/`,
+  dest: `${dirs.dest}/images/`
+};
+
 
 /*
  *  BrowseSync handles the loading, refreshing and synching between different browsers
