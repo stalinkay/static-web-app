@@ -52,6 +52,29 @@ const imagePaths = {
 /*
  *  create required directories
  */
+gulp.task('clean', () => {
+  var directories = [];
+  directories.push(dirs.temp, dirs.dest);
+  delDryRun(directories);
+  del.sync(directories);
+  return gulp.src(dirs.src)
+  .pipe($.util.noop());
+});
+
+function delDryRun(directories) {
+
+  if (typeof directories == 'undefined' || !directories) {
+    return;
+  }
+  del(directories, {dryRun: true}).then(paths => {
+	   console.log('Files and folders that would be deleted:\n', paths.join('\n'));
+  });
+
+}
+
+/*
+ *  create required directories
+ */
 gulp.task('mkdir', () => {
 
   let paths = {
@@ -61,6 +84,7 @@ gulp.task('mkdir', () => {
     images: imagePaths
   };
 
+  // create destination folder
   mkdirp(dirs.dest, (err) => {
       if (err) {
         console.error(err);
@@ -106,28 +130,9 @@ gulp.task('mkdir', () => {
   // .pipe($.util.noop())
   // .pipe(gulp.dest(dirs.dest));
 
+  return gulp.src(dirs.src).pipe($.util.noop());
+
 });
-
-/*
- *  create required directories
- */
-gulp.task('clean', () => {
-  var directories = [];
-  directories.push(dirs.temp, dirs.dest);
-  delDryRun(directories);
-  del(directories);
-});
-
-function delDryRun(directories) {
-
-  if (typeof directories == 'undefined' || !directories) {
-    return;
-  }
-  del(directories, {dryRun: true}).then(paths => {
-	   console.log('Files and folders that would be deleted:\n', paths.join('\n'));
-  });
-
-}
 
 /*
  *  BrowseSync handles the loading, refreshing and synching between different browsers
@@ -181,20 +186,20 @@ gulp.task('changelog', () => {
  *  Create directories and cleanup
  */
 gulp.task('setup', ['clean', 'mkdir'], () => {
-  // return gulp.src('dist/**/*').pipe(gulp.dest(dirs.dist));
+  return gulp.src(dirs.src).pipe($.util.noop());
 });
 
 /*
  *  This is the build task. It is runs all tasks
  */
 //['lint', 'html', 'images', 'fonts', 'extras']
-gulp.task('build', ['changelog', 'setup'], () => {
+gulp.task('build', ['changelog'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
 /*
  *  This is the default task. It is ran once on gulp
  */
-gulp.task('default', [], () => {
+gulp.task('default', ['setup'], () => {
   gulp.start('build');
 });
