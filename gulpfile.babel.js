@@ -167,14 +167,14 @@ gulp.task('serve:test', ['scripts'], () => {
 // Will patch the version
 gulp.task('bump-prerelease', function(){
   gulp.src('./*.json')
-  .pipe(bump())
+  .pipe($.bump({type:'prerelease'}))
   .pipe(gulp.dest('./'));
 });
 
 // Will patch the version
 gulp.task('bump-patch', function(){
   gulp.src('./*.json')
-  .pipe(bump())
+  .pipe($.bump())
   .pipe(gulp.dest('./'));
 });
 
@@ -182,7 +182,7 @@ gulp.task('bump-patch', function(){
 // Semantic
 gulp.task('bump-minor', function(){
   gulp.src('./*.json')
-  .pipe(bump({type:'minor'}))
+  .pipe($.bump({type:'minor'}))
   .pipe(gulp.dest('./'));
 });
 
@@ -190,7 +190,7 @@ gulp.task('bump-minor', function(){
 // Semantic major
 gulp.task('bump-major', function(){
   gulp.src('./*.json')
-  .pipe(bump({type:'major'}))
+  .pipe($.bump({type:'major'}))
   .pipe(gulp.dest('./'));
 });
 
