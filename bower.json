@@ -1,6 +1,6 @@
 {
   "name": "static-web-app",
-  "description": "a Starter static app project with a gulp build workflow",
+  "description": "A starter for web apps with gulp build workflow",
   "main": "index.js",
   "authors": [
     "Stalin Kay"
