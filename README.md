@@ -17,3 +17,5 @@ A starter for web apps with gulp build workflow
 - Browserify
 - Inlining CSS and JS
 - Add nunjucks (HTML Templating)
+- Add Bootstrap
+- Add [JCF - JavaScript Custom Forms](https://github.com/w3co/jcf)
