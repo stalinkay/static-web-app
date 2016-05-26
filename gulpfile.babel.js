@@ -5,6 +5,8 @@ import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
 import mkdirp from 'mkdirp';
+import del from 'del';
+
 
 // constants
 const $ = gulpLoadPlugins();
@@ -13,7 +15,8 @@ const reload = browserSync.reload;
 // base dirs
 const dirs = {
   src: 'src',
-  dest: 'dist'
+  dest: 'dist',
+  temp: '.tmp'
 };
 
 // sass paths
@@ -106,6 +109,27 @@ gulp.task('mkdir', () => {
 });
 
 /*
+ *  create required directories
+ */
+gulp.task('clean', () => {
+  var directories = [];
+  directories.push(dirs.temp, dirs.dest);
+  delDryRun(directories);
+  del(directories);
+});
+
+function delDryRun(directories) {
+
+  if (typeof directories == 'undefined' || !directories) {
+    return;
+  }
+  del(directories, {dryRun: true}).then(paths => {
+	   console.log('Files and folders that would be deleted:\n', paths.join('\n'));
+  });
+
+}
+
+/*
  *  BrowseSync handles the loading, refreshing and synching between different browsers
  */
 gulp.task('serve:dist', () => {
@@ -156,7 +180,7 @@ gulp.task('changelog', () => {
 /*
  *  Create directories and cleanup
  */
-gulp.task('setup', ['mkdir'], () => {
+gulp.task('setup', ['clean', 'mkdir'], () => {
   // return gulp.src('dist/**/*').pipe(gulp.dest(dirs.dist));
 });
 
