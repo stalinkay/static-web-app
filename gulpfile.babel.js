@@ -1,6 +1,9 @@
 'use strict';
 
 import gulp from 'gulp';
+import gulpLoadPlugins from gulpLoadPlugins;
+
+const $ = gulpLoadPlugins();
 
 /*
  *  This is the build task. It is runs all tasks
