@@ -4,6 +4,9 @@ A starter for web apps with gulp build workflow
 ## Features
 
 - ES6+ support using [BabelJS](https://babeljs.io)
+- BrowserSync
+- Auto-generated changelog using [gulp-conventional-changelog](https://github.com/conventional-changelog/gulp-conventional-changelog)
+
 
 ## TO DO
 
@@ -11,7 +14,6 @@ A starter for web apps with gulp build workflow
 - Add automatic packge loader
 - JS Linting - error checking
 - CSS - Less & Sass support
-- BrowserSync
 - Uglify
 - Minification with PostCSS & CSSNano
 - Browserify
