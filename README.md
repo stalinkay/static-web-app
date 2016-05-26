@@ -3,7 +3,7 @@ A starter for web apps with gulp build workflow
 
 ## Features
 
-- ES6+ support using [BabelJS](https:babeljs.io)
+- ES6+ support using [BabelJS](https://babeljs.io)
 
 ## TO DO
 
