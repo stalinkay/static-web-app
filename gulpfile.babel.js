@@ -10,7 +10,9 @@ const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 
-
+/*
+ *  BrowseSync handles the loading, refreshing and synching between different browsers
+ */
 gulp.task('serve:dist', () => {
   browserSync({
     notify: false,
@@ -40,11 +42,28 @@ gulp.task('serve:test', ['scripts'], () => {
   gulp.watch('test/spec/**/*.js', ['lint:test']);
 });
 
+
+/*
+ *  Generate a Changelog
+ */
+gulp.task('changelog', () => {
+
+  return gulp.src('CHANGELOG.md', {
+    buffer: false
+  })
+    .pipe($.conventionalChangelog({
+      preset: 'eslint'
+    }))
+    .pipe(gulp.dest('./'));
+
+});
+
+
 /*
  *  This is the build task. It is runs all tasks
  */
 //['lint', 'html', 'images', 'fonts', 'extras']
-gulp.task('build', [], () => {
+gulp.task('build', ['changelog'], () => {
   // return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
